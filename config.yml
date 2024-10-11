@@ -1,0 +1,24 @@
+_meta:
+  type: "config"
+  config_version: 2
+
+config:
+  dynamic:
+    authc:
+      openid_auth_domain:
+        http_enabled: true
+        transport_enabled: true
+        order: 0
+        http_authenticator:
+          type: openid
+          challenge: false
+          config:
+            subject_key: preferred_username
+            roles_key: roles
+            openid_connect_url: https://sso-dev.odd.works/realms/poc/.well-known/openid-configuration
+            jwt_clock_skew_tolerance_seconds: 20
+        authentication_backend:
+          type: noop
+  openid_connect_idp:
+    enable_ssl: false
+    verify_hostnames: false

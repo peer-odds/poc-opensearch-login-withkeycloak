@@ -1,0 +1,6 @@
+all_access:
+  backend_roles:
+    - "admin"
+read_only:
+  backend_roles:
+    - "default-roles-poc"

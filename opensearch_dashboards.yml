@@ -1,0 +1,28 @@
+server.name: kibana
+server.host: "0.0.0.0"
+server.customResponseHeaders : { "Access-Control-Allow-Credentials" : "true" }
+server.ssl.enabled: false
+
+opensearch.hosts: '["https://opensearch-oidc-node1:9200"]'
+opensearch.ssl.verificationMode: none
+opensearch.username: kibanaserver
+opensearch.password: kibanaserver
+opensearch.requestHeadersWhitelist: ["securitytenant","Authorization"]
+
+opensearch_security.multitenancy.enabled: true
+opensearch_security.multitenancy.tenants.preferred: ["Private", "Global"]
+opensearch_security.readonly_mode.roles: ["tom_role"]
+opensearch_security.cookie.secure: false
+opensearch_security.session.keepalive: false
+
+#OpenID authentication - keycloak
+opensearch_security.auth.type: "openid"
+opensearch_security.openid.connect_url: "http://10.204.162.174:8080/realms/new/.well-known/openid-configuration"
+opensearch_security.openid.client_id: "opensearch"
+opensearch_security.openid.client_secret: "12345678901234567890123456789012"
+# opensearch_security.openid.client_secret: "GMEhHMxnpTw7hhARYAumJdRSP5joOyo8"
+opensearch_security.openid.base_redirect_url: "http://localhost:5601"
+opensearch_security.openid.scope: "openid profile email roles"
+opensearch_security.openid.verify_hostnames: false
+logging.verbose: true
+
