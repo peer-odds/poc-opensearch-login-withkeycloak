@@ -17,12 +17,14 @@ opensearch_security.session.keepalive: false
 
 #OpenID authentication - keycloak
 opensearch_security.auth.type: "openid"
-opensearch_security.openid.connect_url: "http://10.204.162.174:8080/realms/new/.well-known/openid-configuration"
+opensearch_security.openid.connect_url: "http://192.168.1.9:8080/realms/new/.well-known/openid-configuration"
 opensearch_security.openid.client_id: "opensearch"
 opensearch_security.openid.client_secret: "12345678901234567890123456789012"
 # opensearch_security.openid.client_secret: "GMEhHMxnpTw7hhARYAumJdRSP5joOyo8"
 opensearch_security.openid.base_redirect_url: "http://localhost:5601"
 opensearch_security.openid.scope: "openid profile email roles"
 opensearch_security.openid.verify_hostnames: false
+opensearch_security.openid.logout_url: "https://keycloak.mycompany.com/auth/realms/Google/protocol/openid-connect/logout"
+opensearch_security.openid.header: "Authorization"
 logging.verbose: true
 
