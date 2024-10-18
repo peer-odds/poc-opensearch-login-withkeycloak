@@ -13,23 +13,24 @@ config:
         transport_enabled: true
         order: 0
         http_authenticator:
-          type: basic
+          type: "basic"
           challenge: false
         authentication_backend:
-          type: internal
+          type: "internal"
 
       oidc_auth_domain:
         http_enabled: true
         transport_enabled: true
         order: 1
         http_authenticator:
-          type: openid
+          type: "openid_connect_auth"
           challenge: true
           config:
-            subject_key: preferred_username
+            subject_key: "preferred_username"
             roles_key: "roles"
-            openid_connect_url: https://sso-dev.odd.works/realms/poc/.well-known/openid-configuration
-            client_id: opensearch
-            client_secret: WVJopMegKL0Hk3jK2nfOmglpBxXTaQo
-          authentication_backend:
-            type: noop
+            openid_connect_url: "https://sso-dev.odd.works/realms/poc/.well-known/openid-configuration"
+            jwks_uri: "https://sso-dev.odd.works/realms/poc/protocol/openid-connect/certs"
+            client_id: "opensearch"
+            client_secret: "WVJopMegKL0Hk3jK2nfOmglpBxXTaQo"
+        authentication_backend:
+          type: noop

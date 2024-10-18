@@ -1,0 +1,5 @@
+all_access:
+  backend_roles:
+    - "admin"
+    - "default-roles-poc"
+
